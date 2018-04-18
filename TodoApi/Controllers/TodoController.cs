@@ -17,10 +17,10 @@ namespace TodoApi.Controllers
 
             if (_context.TodoItems.Count() == 0)
             {
-                _context.TodoItems.Add(new TodoItem { Name = "Item1" });
-                _context.TodoItems.Add(new TodoItem { Name = "Item22" });
-                _context.TodoItems.Add(new TodoItem { Name = "Item333" });
-                _context.TodoItems.Add(new TodoItem { Name = "Item444" });
+                _context.TodoItems.Add(new TodoItem { Name = "Introducao aos webservices", IsComplete = true });
+                _context.TodoItems.Add(new TodoItem { Name = "Tuturial web api" });
+                _context.TodoItems.Add(new TodoItem { Name = "Persistir os dados" });
+                _context.TodoItems.Add(new TodoItem { Name = "Implementar camadas/dao" });
                 _context.SaveChanges();
             }
         }
@@ -31,6 +31,7 @@ namespace TodoApi.Controllers
             return _context.TodoItems.ToList();
         }
 
+        //[HttpGet("buscar/{id}", Name = "GetTodo")]
         [HttpGet("{id}", Name = "GetTodo")]
         public IActionResult GetById(long id)
         {
